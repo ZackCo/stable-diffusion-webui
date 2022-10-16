@@ -120,6 +120,10 @@ function showGalleryImage() {
                         if(!opts.js_modal_lightbox) return;
                         modalZoomSet(gradioApp().getElementById('modalImage'), opts.js_modal_lightbox_initially_zoomed)
                         showModal(evt)
+                        // gradio's Gallery moves to the next image in sequence when clicked.
+                        // Since we pop up the image in a modal, scroll back one
+                        // so the image we clicked is the one that pops up.
+                        modalPrevImage(evt)
                     }, true);
                 }
             });
